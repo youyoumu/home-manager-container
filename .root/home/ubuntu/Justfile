@@ -1,9 +1,3 @@
-default:
-    . .nix-profile/etc/profile.d/nix.sh && nix run home-manager switch
-
-clean:
-    . .nix-profile/etc/profile.d/nix.sh && nix-store --gc
-
 install-nix:
     curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --no-daemon
 
@@ -18,6 +12,12 @@ install-fnm:
 
 install-node:
     . .cargo/env && fnm install --lts
+
+home-manager-switch:
+    . .nix-profile/etc/profile.d/nix.sh && nix run home-manager switch
+
+clean:
+    . .nix-profile/etc/profile.d/nix.sh && nix-store --gc
 
 install-pnpm:
     npm i -g pnpm
