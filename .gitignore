@@ -1,0 +1,7 @@
+.root/nix
+.root/home/ubuntu/*
+!.root/home/ubuntu/Justfile
+!.root/home/ubuntu/.config
+.root/home/ubuntu/.config/*
+!.root/home/ubuntu/.config/home-manager
+!.root/home/ubuntu/.config/nix
