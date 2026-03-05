@@ -2,6 +2,7 @@
 !.root/nix/.keep
 .root/home/ubuntu/*
 !.root/home/ubuntu/Justfile
+!.root/home/ubuntu/install.just
 !.root/home/ubuntu/.config
 .root/home/ubuntu/.config/*
 !.root/home/ubuntu/.config/home-manager

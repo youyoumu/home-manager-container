@@ -53,12 +53,14 @@ just bind bar  # Opens project bar
 Use the Justfile at `~/.home/ubuntu/Justfile`:
 
 ```bash
-just install-nix          # Install nix (if needed)
-just home-manager-switch # Apply home-manager configuration
-just install-rustup      # Install Rust toolchain
-just install-node        # Install Node.js via fnm
-just install-opencode    # Install opencode CLI
-just clean               # Clean nix store
+just default                # home-manager-switch
+just clean                  # Clean nix store
+just install nix            # Install nix (if needed)
+just install home-manager   # Apply home-manager configuration
+just install rustup         # Install Rust toolchain
+just install node           # Install Node.js via fnm
+just install pnpm           # Install pnpm
+just install opencode       # Install opencode CLI
 ```
 
 ## Configuration
