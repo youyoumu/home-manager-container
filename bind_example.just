@@ -1,3 +1,5 @@
+# Copy this file to bind.just and customize the paths
+
 default:
     docker run -it --rm \
     -v $(pwd)/.root/nix:/nix \

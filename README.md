@@ -19,23 +19,34 @@ A Docker container for development with Nix and Home Manager pre-configured.
 Build the Docker image:
 
 ```bash
-just docker-build
+just docker build
 ```
 
 Run the container with persistent nix store and home directory:
 
 ```bash
-just docker-run-bind-root
+just bind
 ```
 
 ## Just Commands
 
-| Command | Description |
-|---------|-------------|
-| `just docker-build` | Build the Docker image |
-| `just docker-run` | Run container interactively |
-| `just docker-run-bind-root` | Run with bound nix and home directories |
-| `just docker-run-bind-project <path> <name>` | Run with additional project bound |
+| Command                           | Description                             |
+| --------------------------------- | --------------------------------------- |
+| `just docker build`               | Build the Docker image                  |
+| `just docker run`                 | Run container interactively             |
+| `just bind`                       | Run with bound nix and home directories |
+| `just bind project <path> <name>` | Run with additional project bound       |
+
+## Project Binding Examples
+
+Copy `bind_example.just` to `bind.just` and customize for your projects:
+
+```bash
+cp bind_example.just bind.just
+# Edit paths in bind.just to match your setup
+just bind foo  # Opens project foo
+just bind bar  # Opens project bar
+```
 
 ## Inside the Container
 
@@ -53,11 +64,13 @@ just clean               # Clean nix store
 ## Configuration
 
 Home Manager configuration is in:
+
 ```
 .root/home/ubuntu/.config/home-manager/
 ```
 
 Edit `home.nix` to add packages or programs, then run:
+
 ```bash
 just home-manager-switch
 ```
