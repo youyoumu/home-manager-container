@@ -1,70 +1,63 @@
-# OpenCode Container
+# Home Manager Container
 
-A Docker container setup that provides a persistent, encapsulated development environment for running OpenCode AI with tracked configuration and tool installations.
+A Docker container for development with Nix and Home Manager pre-configured.
 
-## Overview
+## What's Included
 
-This project creates a barebones Ubuntu Docker container with mounted persistence for:
-
-- `/nix` store - Nix package manager storage
-- `/home/ubuntu` - User home directory with tools and configurations
-
-The setup tracks configuration files and installation scripts in version control while keeping the actual installations persistent across container runs.
+- **Ubuntu 24.04** base
+- **Nix** package manager (single-user mode)
+- **Home Manager** for declarative dotfile management
+- **Fish** shell with starship prompt
+- **Neovim** as default editor
+- **yazi** - file manager
+- **fzf** - fuzzy finder
+- **zoxide** - smart cd
+- Plus: bat, fd, ripgrep, git, fastfetch, eza, tree, dust
 
 ## Quick Start
 
-1. Build the container:
+Build the Docker image:
 
 ```bash
 just docker-build
 ```
 
-2. Run with persistent storage:
+Run the container with persistent nix store and home directory:
 
 ```bash
 just docker-run-bind-root
 ```
 
-3. Run with a project mounted:
+## Just Commands
+
+| Command | Description |
+|---------|-------------|
+| `just docker-build` | Build the Docker image |
+| `just docker-run` | Run container interactively |
+| `just docker-run-bind-root` | Run with bound nix and home directories |
+| `just docker-run-bind-project <path> <name>` | Run with additional project bound |
+
+## Inside the Container
+
+Use the Justfile at `~/.home/ubuntu/Justfile`:
 
 ```bash
-just docker-run-bind-project /path/to/your/project my-project
+just install-nix          # Install nix (if needed)
+just home-manager-switch # Apply home-manager configuration
+just install-rustup      # Install Rust toolchain
+just install-node        # Install Node.js via fnm
+just install-opencode    # Install opencode CLI
+just clean               # Clean nix store
 ```
 
-## Available Commands
+## Configuration
 
-### Docker Commands (via Just)
+Home Manager configuration is in:
+```
+.root/home/ubuntu/.config/home-manager/
+```
 
-- `just docker-build` - Build the Docker image
-- `just docker-run` - Run basic container
-- `just docker-run-bind-root` - Run with persistent storage
-- `just docker-run-bind-project <path> <name>` - Run with project mounted
-
-### Setup Commands (inside container)
-
-**First-time Setup Sequence:**
+Edit `home.nix` to add packages or programs, then run:
 ```bash
-just install-nix              # Install Nix package manager
-just install-rustup           # Install Rust toolchain
-just install-rust             # Configure stable Rust with rust-analyzer
-just install-fnm              # Install Fast Node Manager (requires Rust)
-just install-node             # Install LTS Node.js via fnm
-just install-pnpm             # Install pnpm package manager
-just install-opencode         # Install OpenCode AI CLI
-just home-manager-switch      # Apply Home Manager configuration
+just home-manager-switch
 ```
-
-**Other Commands:**
-- `just clean` - Clean Nix store garbage
-
-## Architecture
-
-### Persistence Strategy
-
-- `.root/nix/` - Mounted to container's `/nix` (Nix store)
-- `.root/home/ubuntu/` - Mounted to container's `/home/ubuntu`
-- Tracked files in `.root/home/ubuntu/`:
-  - `Justfile` - Installation scripts
-  - `.config/home-manager/` - Home Manager configuration
-  - `.config/nix/` - Nix configuration
-

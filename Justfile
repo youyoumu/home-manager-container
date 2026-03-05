@@ -1,8 +1,8 @@
 docker-build:
-    docker build -t youyoumu2025/opencode-container .
+    docker build -t local/opencode-container .
 
 docker-run:
-    docker run -it --rm youyoumu2025/opencode-container
+    docker run -it --rm local/opencode-container
 
 docker-run-bind-root:
     docker run -it --rm \
@@ -17,4 +17,4 @@ docker-run-bind-project project-path project-name:
     -v $(pwd)/.root/home/ubuntu:/home/ubuntu \
     -v {{ project-path }}:/home/ubuntu/repos/{{ project-name }} \
     -w /home/ubuntu/repos/{{ project-name }} \
-    youyoumu2025/opencode-container bash
+    local/opencode-container bash
