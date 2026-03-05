@@ -21,3 +21,6 @@ opencode:
 
 gemini:
     npm install -g @google/gemini-cli
+
+codex:
+    npm i -g @openai/codex
