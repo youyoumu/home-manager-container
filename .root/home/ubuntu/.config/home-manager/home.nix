@@ -4,6 +4,12 @@
     username = "ubuntu";
     homeDirectory = "/home/ubuntu";
     stateVersion = "25.11";
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      GIT_EDITOR = "nvim";
+      TERM = "xterm-kitty";
+    };
     shell.enableFishIntegration = true;
     packages = with pkgs; [
       tree

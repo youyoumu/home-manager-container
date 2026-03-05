@@ -19,5 +19,5 @@ pnpm:
 opencode:
     npm i -g opencode-ai
 
-home-manager:
-    . .nix-profile/etc/profile.d/nix.sh && nix run home-manager switch
+gemini:
+    npm install -g @google/gemini-cli
