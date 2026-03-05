@@ -1,4 +1,5 @@
-.root/nix
+.root/nix/*
+!.root/nix/.keep
 .root/home/ubuntu/*
 !.root/home/ubuntu/Justfile
 !.root/home/ubuntu/.config
