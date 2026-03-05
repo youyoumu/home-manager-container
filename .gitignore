@@ -6,3 +6,4 @@
 .root/home/ubuntu/.config/*
 !.root/home/ubuntu/.config/home-manager
 !.root/home/ubuntu/.config/nix
+bind.just
