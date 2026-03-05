@@ -1,5 +1,5 @@
 # hadolint global ignore=DL3008,SC1091
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \

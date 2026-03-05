@@ -57,7 +57,7 @@ just default                # home-manager-switch
 just clean                  # Clean nix store
 just install nix            # Install nix (if needed)
 just install home-manager   # Apply home-manager configuration
-just install rustup         # Install Rust toolchain
+just install rustup         # Install Rust toolchain (don't modify shell config - managed by nix)
 just install node           # Install Node.js via fnm
 just install pnpm           # Install pnpm
 just install opencode       # Install opencode CLI
@@ -74,5 +74,5 @@ Home Manager configuration is in:
 Edit `home.nix` to add packages or programs, then run:
 
 ```bash
-just home-manager-switch
+just default
 ```
