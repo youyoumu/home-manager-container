@@ -24,3 +24,6 @@ gemini:
 
 codex:
     npm i -g @openai/codex
+
+qwen-code:
+    npm install -g @qwen-code/qwen-code@latest

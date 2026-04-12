@@ -24,6 +24,7 @@
     ripgrep.enable = true;
     git.enable = true;
     fastfetch.enable = true;
+    jq.enable = true;
     bash = {
       enable = true;
       bashrcExtra = builtins.readFile ./bashrcExtra.sh;

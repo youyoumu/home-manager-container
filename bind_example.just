@@ -4,6 +4,7 @@ default:
     docker run -it --rm \
     -v $(pwd)/.root/nix:/nix \
     -v $(pwd)/.root/home/ubuntu:/home/ubuntu \
+    -v ${HOME}/.local/share/pnpm:/home/ubuntu/.local/share/pnpm \
     local/home-manager-container bash
 
 project project-path project-name:
@@ -11,6 +12,7 @@ project project-path project-name:
     docker run -it --rm \
     -v $(pwd)/.root/nix:/nix \
     -v $(pwd)/.root/home/ubuntu:/home/ubuntu \
+    -v ${HOME}/.local/share/pnpm:/home/ubuntu/.local/share/pnpm \
     -v {{ project-path }}:/home/ubuntu/repos/{{ project-name }} \
     -w /home/ubuntu/repos/{{ project-name }} \
     local/home-manager-container bash
