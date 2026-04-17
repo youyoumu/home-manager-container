@@ -19,14 +19,26 @@ node:
 pnpm:
     npm i -g pnpm
 
+pi:
+    npm i -g @mariozechner/pi-coding-agent
+
 opencode:
     npm i -g opencode-ai
 
 gemini:
-    npm install -g @google/gemini-cli
+    npm i -g @google/gemini-cli
 
 codex:
     npm i -g @openai/codex
 
 qwen-code:
-    npm install -g @qwen-code/qwen-code@latest
+    npm i -g @qwen-code/qwen-code@latest
+
+claude-code:
+    npm i -g @anthropic-ai/claude-code
+
+kilo:
+    npm i -g @kilocode/cli
+
+kimi:
+    uv tool install --python 3.13 kimi-cli
