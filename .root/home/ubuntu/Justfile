@@ -1,7 +1,7 @@
 mod install
 
 default:
-    . .nix-profile/etc/profile.d/nix.sh && nix run home-manager switch
+    . .nix-profile/etc/profile.d/nix.sh && nix run home-manager -- switch --flake ./.config/home-manager#ubuntu --impure
 
 clean:
     . .nix-profile/etc/profile.d/nix.sh && nix-store --gc

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   home = {
-    username = "ubuntu";
-    homeDirectory = "/home/ubuntu";
+    username = builtins.getEnv "USER";
+    homeDirectory = "/home/${builtins.getEnv "USER"}";
     stateVersion = "25.11";
     sessionVariables = {
       EDITOR = "nvim";
