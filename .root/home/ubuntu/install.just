@@ -10,6 +10,9 @@ rust:
 fnm:
     . .cargo/env && cargo install fnm
 
+uv:
+    . .cargo/env && cargo install uv
+
 node:
     . .cargo/env && fnm install --lts
 
